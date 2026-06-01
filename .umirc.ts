@@ -13,7 +13,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: 'React PC App',
+    title: 'React PC App1',
   },
   routes: [
     {

@@ -9,15 +9,15 @@ export async function getInitialState(): Promise<{ name: string }> {
 export const qiankun = {
   // 应用加载之前
   async bootstrap(props: any) {
-    console.log('[mainApp] bootstrap', props);
+    console.log('[App1] bootstrap', props);
   },
   // 应用 render 之前触发
   async mount(props: any) {
-    console.log('[mainApp] mount', props);
+    console.log('[App1] mount', props);
   },
   // 应用卸载之后触发
   async unmount(props: any) {
-    console.log('[mainApp] unmount', props);
+    console.log('[App1] unmount', props);
   },
 };
 
