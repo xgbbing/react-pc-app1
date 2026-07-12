@@ -39,7 +39,7 @@ export default defineConfig({
   ],
   npmClient: 'pnpm',
   // utoopack: {},
-  // mfsu: false,
+  mfsu: false, // 注意：Umi 4 开启 qiankun slave 时通常需要关闭 mfsu 或做特殊处理
   qiankun: {
     slave: {},
   },
