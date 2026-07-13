@@ -102,24 +102,8 @@ export const qiankun = {
   async unmount(props: any) {
     console.log('[App1] unmount', props);
     cachedMasterProps = {};
-    // 根据主应用传递的 mode 来判断是全屏模式还是嵌入模式
-    const isEmbed = props?.mode === 'embed';
-    const appId = isEmbed ? 'react-pc-app1-embed' : 'react-pc-app1';
-    const containerId = `root-${appId}`;
-    // 核心：在子应用卸载时，必须移除全局事件监听，防止内存泄漏和事件污染
     window.removeEventListener('unhandledrejection', handleUnhandledRejection);
     window.removeEventListener('error', handleError);
-    // 统一清理 message DOM 和全局事件，防止内存泄漏
-    const { message } = require('antd');
-    message.destroy();
-
-    // 2. 兜底清理：移除子应用容器内所有由 Ant Design 动态生成的 style 标签
-    // 防止在卸载过程中触发 CSS 更新报错
-    const container = document.getElementById(containerId);
-    if (container) {
-      const dynamicStyles = container.querySelectorAll('style[data-css-hash]');
-      dynamicStyles.forEach((style: any) => style.remove());
-    }
   },
 };
 
